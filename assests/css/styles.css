@@ -1,0 +1,352 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Syne:regular,500,600,700,800);
+
+:root {
+  --header-height: 3.5rem;
+  /*===== Colors =====*/
+  /*color mode HSL (hue, saturation, lightness)*/
+  /*
+      change favorite color
+      Default: hsl(230, 55%, 55%)
+      Purple: hsl(245, 55%, 55%) -Blue: hsl(210,55%, 55%)
+      Pink: hsl(340,55%, 55%) - green: hsl(162, 55% 55%)
+      Orange: hsl(14,55%, 55%)
+  
+      for more colors visit:
+      -> Choose any colors
+      -> Click on tab (Color Conversation)
+      -> Copy the color mode (HSL)
+      */
+  --hue: 230;
+  --first-color: hsl(var(--hue), 55%, 55%);
+  --first-color-light: hsl(var(--hue), 55%, 65%);
+  --first-color-alt: hsl(var(--hue), 50%, 50%);
+  --title-color: hsl(var(--hue), 30%, 95%);
+  --text-color: hsl(var(--hue), 20%, 80%);
+  --text-color-light: hsl(var(--hue), 20%, 70%);
+  /*backround #181E39 */
+  --body-color: hsl(var(--hue), 40%, 16%);
+  /* container #1F2547 */
+  --container-color: hsl(var(--hue), 40%, 20%);
+  --underweight: orange;
+  --normal: green;
+  --overweight: lightcoral;
+  --obese: crimson;
+
+  /*===== FONTS AND TYPOGRAPHY =====*/
+  /*.5rem = 8px | 1rem =16px ..*/
+  --body--font: "Syne", sans-serif;
+  --biggest-font-size: 3rem;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+
+  /*===== FONT WEIGHT =====*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*===== Z INDEX =====*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--body-color);
+  color: #222;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 420px;
+  background-color: var(--title-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  display: grid;
+  gap: 1rem;
+}
+
+.calculator {
+  display: grid;
+  gap: 1rem;
+}
+
+.calculator div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calculator label {
+  flex: 0 1 120px;
+  font-weight: 600;
+}
+
+.calculator input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: #555;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.calculator button {
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--first-color);
+  padding: 10px;
+  color: var(--title-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calculator button[type="reset"] {
+  background: #444;
+}
+
+.calculator button:hover {
+  filter: brightness(120%);
+}
+
+.output {
+  text-align: center;
+}
+
+.output #bmi {
+  font-size: 4rem;
+}
+
+.output desc strong {
+  text-transform: uppercase;
+}
+
+.bmi-scale {
+  display: flex;
+}
+
+.bmi-scale div {
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 5px solid var(--color);
+  padding: 10px;
+}
+
+.bmi-scale h4 {
+  font-size: 0.75rem;
+  color: slategray;
+}
+
+.underweight {
+  color: var(--underweight);
+}
+
+.healthy {
+  color: var(--normal);
+}
+
+.overweight {
+  color: var(--overweight);
+}
+
+.obese {
+  color: var(--obese);
+}
+
+@media screen and (max-width: 1440px) {
+  .container {
+    max-width: 400px;
+  }
+  .bmi-scale p {
+    font-size: 0.93rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 400px;
+  }
+  .bmi-scale p {
+    font-size: 0.93rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 400px;
+  }
+  .bmi-scale p {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .container {
+    max-width: 300px;
+    padding: 1rem;
+  }
+  .container input {
+    font-size: 0.7rem;
+  }
+  .container button {
+    font-size: 0.7rem;
+  }
+  .output #bmi {
+    font-size: 1.5rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.5rem;
+  }
+  .bmi-scale p {
+    font-size: 0.61rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    max-width: 250px;
+    padding: 1rem;
+  }
+  .container input {
+    font-size: 0.5rem;
+  }
+  .container button {
+    font-size: 0.6rem;
+  }
+  .output #bmi {
+    font-size: 1rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.3rem;
+  }
+  .bmi-scale p {
+    font-size: 0.52rem;
+  }
+}
+/* @media (max-width: 1440px) {
+  .container {
+    max-width: 600px;
+    padding: 2rem;
+  }
+  .calculator input {
+    font-size: 1.15rem;
+  }
+  .calculator button {
+    font-size: 1rem;
+  }
+  .output #bmi {
+    font-size: 3.5rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 500px;
+  }
+  .calculator input {
+    font-size: 1.1rem;
+  }
+  .calculator button {
+    font-size: 0.95rem;
+  }
+  .output #bmi {
+    font-size: 3rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 400px;
+  }
+  .calculator input {
+    font-size: 1rem;
+  }
+  .calculator button {
+    font-size: 0.9rem;
+  }
+  .output #bmi {
+    font-size: 2.5rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    max-width: 350px;
+  }
+  .calculator input {
+    font-size: 0.9rem;
+  }
+  .calculator button {
+    font-size: 0.85rem;
+  }
+  .output #bmi {
+    font-size: 2rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 300px;
+  }
+  .calculator input {
+    font-size: 0.75rem;
+  }
+  .calculator button {
+    font-size: 0.75rem;
+  }
+  .output #bmi {
+    font-size: 1rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.4rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    max-width: 250px;
+  }
+  .calculator input {
+    font-size: 0.5rem;
+  }
+  .calculator button {
+    font-size: 0.8rem;
+  }
+  .output #bmi {
+    font-size: .7rem;
+  }
+  .bmi-scale h4 {
+    font-size: 0.1rem;
+  }
+} */
